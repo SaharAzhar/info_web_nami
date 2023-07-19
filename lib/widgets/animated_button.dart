@@ -1,62 +1,28 @@
-// import 'package:flutter/material.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-// import 'components.dart';
-
-// class HoverIconAnimation extends StatefulWidget {
-//   @override
-//   _HoverIconAnimationState createState() => _HoverIconAnimationState();
-// }
-
-// class _HoverIconAnimationState extends State<HoverIconAnimation> {
-//   bool _isHovered = false;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MouseRegion(
-//       onEnter: (_) {
-//         setState(() {
-//           _isHovered = true;
-//         });
-//       },
-//       onExit: (_) {
-//         setState(() {
-//           _isHovered = false;
-//         });
-//       },
-//       child: AnimatedSwitcher(
-//         duration: Duration(milliseconds: 300),
-//         child: _isHovered
-//             ? Container(
-//                 padding: EdgeInsets.all(5.0),
-//                 decoration:
-//                     BoxDecoration(shape: BoxShape.circle, color: gradientGreen),
-//                 child: const FaIcon(
-//                   FontAwesomeIcons.arrowRight,
-//                   color: Colors.white,
-//                   size: 20,
-//                 ),
-//               )
-//             : const FaIcon(
-//                 FontAwesomeIcons.solidCircleDot,
-//                 color: Colors.white54,
-//                 size: 20,
-//               ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../components.dart';
 
 // import 'color_theme.dart';
 
 class Onhover extends StatefulWidget {
   final VoidCallback onPressed;
   final String text;
+  final Color color;
+  final bool textHover;
+  final bool textBorder;
+  final bool background;
+  final double fontsize;
 
-  const Onhover({super.key, required this.onPressed, required this.text});
+  const Onhover(
+      {super.key,
+      required this.onPressed,
+      required this.text,
+      required this.color,
+      required this.textHover,
+      required this.textBorder,
+      required this.background,
+      required this.fontsize});
 
   @override
   OnhoverState createState() => OnhoverState();
@@ -106,20 +72,24 @@ class OnhoverState extends State<Onhover> with SingleTickerProviderStateMixin {
       child: InkWell(
         onTap: widget.onPressed,
         child: Container(
-          width: 200.0,
-          height: 50.0,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(30),
-          ),
+          height: 30,
+          width: 180,
+          decoration: widget.textBorder
+              ? BoxDecoration(
+                  color: widget.background ? Colors.white : Colors.transparent,
+                  border: _isHovered
+                      ? Border.all(color: gradientGreen)
+                      : Border.all(color: gradientPurple),
+                  borderRadius: BorderRadius.all(Radius.circular(20)))
+              : null,
           child: Row(
             children: [
               const SizedBox(width: 5),
               Container(
-                width: 40.0,
-                height: 40.0,
+                width: 20.0,
+                height: 20.0,
                 decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 22, 38, 158),
+                  color: Color.fromARGB(255, 226, 229, 248),
                   shape: BoxShape.circle,
                 ),
                 child: AnimatedBuilder(
@@ -132,8 +102,8 @@ class OnhoverState extends State<Onhover> with SingleTickerProviderStateMixin {
                       alignment: Alignment.center,
                       children: [
                         Container(
-                          width: 10.0 + spread,
-                          height: 10.0 + spread,
+                          width: 5.0 + spread,
+                          height: 5.0 + spread,
                           decoration: BoxDecoration(
                             color: _isHovered
                                 ? Colors.green
@@ -162,17 +132,30 @@ class OnhoverState extends State<Onhover> with SingleTickerProviderStateMixin {
                   },
                 ),
               ),
-              const SizedBox(width: 20),
-              Center(
-                child: Text(
-                  'Contact Us',
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
-                    color: _isHovered ? Colors.green : Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
+              const SizedBox(width: 10),
+              widget.textHover
+                  ? Center(
+                      child: Text(
+                        widget.text,
+                        textAlign: TextAlign.right,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600,
+                          color: _isHovered ? Colors.green : widget.color,
+                          fontSize: widget.fontsize,
+                        ),
+                      ),
+                    )
+                  : Center(
+                      child: Text(
+                        widget.text,
+                        textAlign: TextAlign.right,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600,
+                          color: widget.color,
+                          fontSize: widget.fontsize,
+                        ),
+                      ),
+                    ),
             ],
           ),
         ),

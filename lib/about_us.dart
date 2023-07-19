@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nami_web_info/partner.dart';
-import 'package:nami_web_info/test.dart';
+import 'package:nami_web_info/widgets/newsSlider_Icons.dart';
+import 'package:nami_web_info/widgets/animated_button.dart';
 
 import 'components.dart';
 
@@ -31,7 +32,7 @@ class _AboutUSState extends State<AboutUS> {
                   width: MediaQuery.sizeOf(context).width,
                   decoration: const BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [gradientPurple, gradientBlue, gradientGreen],
+                        colors: [gradientGreen, gradientBlue, gradientPurple],
                         begin: Alignment.topCenter,
                         end: Alignment.centerRight,
                         //stops: [0.3, 0.6, 0.8]
@@ -291,11 +292,7 @@ class _AboutUSState extends State<AboutUS> {
                     children: [
                       Text('Our growth mission',
                           style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                  decoration: TextDecoration.none,
-                                  fontSize: 10,
-                                  //fontWeight: FontWeight.w100,
-                                  color: Color.fromARGB(255, 52, 2, 110)))),
+                              color: Color.fromARGB(255, 52, 2, 110))),
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 50, vertical: 10),
@@ -306,23 +303,15 @@ class _AboutUSState extends State<AboutUS> {
                         child: Text(
                             'On a mission to enable\n and endorse our clients',
                             style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                    decoration: TextDecoration.none,
-                                    fontSize: 20,
-                                    //fontWeight: FontWeight.w100,
-                                    color: Color.fromARGB(255, 52, 2, 110)))),
+                                color: Color.fromARGB(255, 52, 2, 110))),
                       ),
                       SizedBox(
-                        width: 300,
+                        width: 380,
                         child: Text(
                             'Through sustainable innovation, effective support, and objective guidance, achieving comprehensive financial growth and long-term partnerships.',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                    decoration: TextDecoration.none,
-                                    fontSize: 10,
-                                    //fontWeight: FontWeight.w100,
-                                    color: Color.fromARGB(255, 52, 2, 110)))),
+                                color: Color.fromARGB(255, 52, 2, 110))),
                       )
                     ],
                   ),
@@ -334,7 +323,7 @@ class _AboutUSState extends State<AboutUS> {
                           style: GoogleFonts.poppins(
                               textStyle: const TextStyle(
                                   decoration: TextDecoration.none,
-                                  fontSize: 10,
+
                                   //fontWeight: FontWeight.w100,
                                   color: Color.fromARGB(255, 52, 2, 110)))),
                       Container(
@@ -345,12 +334,7 @@ class _AboutUSState extends State<AboutUS> {
                             color: Colors.grey.shade300,
                             borderRadius: BorderRadius.circular(16)),
                         child: Text('We aim to lead the\n fintech market',
-                            style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                    decoration: TextDecoration.none,
-                                    fontSize: 20,
-                                    //fontWeight: FontWeight.w100,
-                                    color: Color.fromARGB(255, 52, 2, 110)))),
+                            style: GoogleFonts.poppins()),
                       ),
                       SizedBox(
                         width: 300,
@@ -358,11 +342,7 @@ class _AboutUSState extends State<AboutUS> {
                             'with our innovation, expertise, and partnership to endorse businesses with ongoing financial growth.',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                    decoration: TextDecoration.none,
-                                    fontSize: 10,
-                                    //fontWeight: FontWeight.w100,
-                                    color: Color.fromARGB(255, 52, 2, 110)))),
+                                color: Color.fromARGB(255, 52, 2, 110))),
                       )
                     ],
                   ),
@@ -453,43 +433,11 @@ class _AboutUSState extends State<AboutUS> {
                       const Row(
                         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FaIcon(
-                            FontAwesomeIcons.facebook,
-                            color: Colors.white24,
-                            size: 20,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          FaIcon(
-                            FontAwesomeIcons.linkedin,
-                            color: Colors.white24,
-                            size: 20,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          FaIcon(
-                            FontAwesomeIcons.youtube,
-                            color: Colors.white24,
-                            size: 20,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          FaIcon(
-                            FontAwesomeIcons.twitter,
-                            color: Colors.white24,
-                            size: 20,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          FaIcon(
-                            FontAwesomeIcons.instagram,
-                            color: Colors.white24,
-                            size: 20,
-                          ),
+                          socialIcon(social: FontAwesomeIcons.squareFacebook),
+                          socialIcon(social: FontAwesomeIcons.linkedin),
+                          socialIcon(social: FontAwesomeIcons.youtube),
+                          socialIcon(social: FontAwesomeIcons.twitter),
+                          socialIcon(social: FontAwesomeIcons.instagram),
                         ],
                       ),
                       const SizedBox(
@@ -541,8 +489,18 @@ class _AboutUSState extends State<AboutUS> {
                               height: 30,
                             ),
                             Onhover(
-                              onPressed: () {},
-                              text: 'Contect Us',
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => PartnerSrc()));
+                              },
+                              text: 'Become a partner',
+                              color: Colors.white,
+                              textBorder: false,
+                              textHover: false,
+                              background: false,
+                              fontsize: 14,
                             )
                             // TextButton.icon(
                             //     onPressed: () {
