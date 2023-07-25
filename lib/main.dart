@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nami_web_info/contact.dart';
-import 'package:nami_web_info/landing.dart';
-import 'package:nami_web_info/partner.dart';
-
-import 'package:nami_web_info/widgets/animated_button.dart';
+import 'package:nami_web_info/services.dart';
+import 'package:nami_web_info/widgets/services_tab.dart';
 
 import 'about_us.dart';
-
-import 'inner_news.dart';
-import 'news_events.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,15 +21,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: ContatcScr()
-        //MyWidget()
-        //NewsInnerPage(),
-        // NewsEventSrc()
-        //HoverIconAnimation()
-        //Formdemo()
-        //PartnerSrc(),
-        //AboutUS(),
-        //MyHomePage(),
-        );
+        home: ServiceTabChnager());
   }
 }
