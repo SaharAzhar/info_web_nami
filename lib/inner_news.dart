@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nami_web_info/components.dart';
 import 'package:nami_web_info/widgets/footer.dart';
 import 'package:nami_web_info/widgets/animated_button.dart';
+
+import 'landing.dart';
 
 class NewsInnerPage extends StatefulWidget {
   const NewsInnerPage({super.key});
@@ -30,7 +32,7 @@ class _NewsInnerPageState extends State<NewsInnerPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: const EdgeInsets.only(top: 50, left: 32, right: 32),
+              padding: const EdgeInsets.only(top: 30, left: 32, right: 32),
               height: MediaQuery.sizeOf(context).height * 0.6,
               width: MediaQuery.sizeOf(context).width,
               decoration: BoxDecoration(
@@ -39,28 +41,36 @@ class _NewsInnerPageState extends State<NewsInnerPage> {
                       bottomRight: Radius.circular(30.0)),
                   gradient: LinearGradient(
                       colors: [gradientPurple, gradientBlue, gradientGreen])),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text('Our new agreement\nwith "Marn"',
-                          style: GoogleFonts.poppins(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          )),
-                      Text('28 Nov 23',
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.bold,
-                              color: gradientGreen)),
-                    ],
+                  NavigationHeader(),
+                  SizedBox(
+                    height: 50,
                   ),
-                  Image.asset(
-                    'assets/images/marn.png',
-                    scale: 2,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text('Our new agreement\nwith "Marn"',
+                              style: GoogleFonts.poppins(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              )),
+                          Text('28 Nov 23',
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.bold,
+                                  color: gradientGreen)),
+                        ],
+                      ),
+                      Image.asset(
+                        'assets/images/marn.png',
+                        scale: 2,
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -191,6 +201,8 @@ class _NewsInnerPageState extends State<NewsInnerPage> {
                               textBorder: false,
                               background: false,
                               fontsize: 14,
+                              containerHeight: 30,
+                              containerWeight: 180,
                             )
                           ],
                         )
@@ -201,7 +213,7 @@ class _NewsInnerPageState extends State<NewsInnerPage> {
             SizedBox(
               height: 30,
             ),
-            contactFooter()
+            ContactFooter()
           ],
         ),
       ),

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nami_web_info/partner.dart';
-import 'package:nami_web_info/widgets/newsSlider_Icons.dart';
+import 'package:nami_web_info/widgets/verticalContainer_Icons.dart';
 import 'package:nami_web_info/widgets/animated_button.dart';
 
 import 'components.dart';
+import 'landing.dart';
 
 class AboutUS extends StatefulWidget {
   const AboutUS({super.key});
@@ -28,7 +29,7 @@ class _AboutUSState extends State<AboutUS> {
                 Container(
                   padding: const EdgeInsets.only(left: 80),
                   // height: 500,
-                  height: MediaQuery.sizeOf(context).height * 0.7,
+                  height: MediaQuery.sizeOf(context).height * 0.8,
                   width: MediaQuery.sizeOf(context).width,
                   decoration: const BoxDecoration(
                       gradient: LinearGradient(
@@ -44,8 +45,12 @@ class _AboutUSState extends State<AboutUS> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        height: 30,
+                      ),
+                      NavigationHeader(),
                       const SizedBox(
-                        height: 150,
+                        height: 140,
                       ),
                       const Text('A futuristic',
                           style: TextStyle(
@@ -433,11 +438,11 @@ class _AboutUSState extends State<AboutUS> {
                       const Row(
                         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          socialIcon(social: FontAwesomeIcons.squareFacebook),
-                          socialIcon(social: FontAwesomeIcons.linkedin),
-                          socialIcon(social: FontAwesomeIcons.youtube),
-                          socialIcon(social: FontAwesomeIcons.twitter),
-                          socialIcon(social: FontAwesomeIcons.instagram),
+                          SocialIcon(social: FontAwesomeIcons.squareFacebook),
+                          SocialIcon(social: FontAwesomeIcons.linkedin),
+                          SocialIcon(social: FontAwesomeIcons.youtube),
+                          SocialIcon(social: FontAwesomeIcons.twitter),
+                          SocialIcon(social: FontAwesomeIcons.instagram),
                         ],
                       ),
                       const SizedBox(
@@ -501,6 +506,8 @@ class _AboutUSState extends State<AboutUS> {
                               textHover: false,
                               background: false,
                               fontsize: 14,
+                              containerHeight: 30,
+                              containerWeight: 180,
                             )
                             // TextButton.icon(
                             //     onPressed: () {

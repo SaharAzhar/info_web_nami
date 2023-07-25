@@ -13,6 +13,8 @@ class Onhover extends StatefulWidget {
   final bool textBorder;
   final bool background;
   final double fontsize;
+  final double containerHeight;
+  final double containerWeight;
 
   const Onhover(
       {super.key,
@@ -22,7 +24,9 @@ class Onhover extends StatefulWidget {
       required this.textHover,
       required this.textBorder,
       required this.background,
-      required this.fontsize});
+      required this.fontsize,
+      required this.containerHeight,
+      required this.containerWeight});
 
   @override
   OnhoverState createState() => OnhoverState();
@@ -72,8 +76,8 @@ class OnhoverState extends State<Onhover> with SingleTickerProviderStateMixin {
       child: InkWell(
         onTap: widget.onPressed,
         child: Container(
-          height: 30,
-          width: 180,
+          height: widget.containerHeight, //30,
+          width: widget.containerWeight, // 180,
           decoration: widget.textBorder
               ? BoxDecoration(
                   color: widget.background ? Colors.white : Colors.transparent,

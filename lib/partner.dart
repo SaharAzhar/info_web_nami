@@ -3,10 +3,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nami_web_info/widgets/footer.dart';
 import 'package:nami_web_info/widgets/partner_form.dart';
-import 'package:nami_web_info/widgets/newsSlider_Icons.dart';
+import 'package:nami_web_info/widgets/verticalContainer_Icons.dart';
 import 'package:nami_web_info/widgets/animated_button.dart';
 
 import 'components.dart';
+import 'landing.dart';
 
 class PartnerSrc extends StatefulWidget {
   const PartnerSrc({super.key});
@@ -22,6 +23,10 @@ class _PartnerSrcState extends State<PartnerSrc> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: 30,
+            ),
+            NavigationHeader(),
             Container(
               margin: const EdgeInsets.only(
                   top: 70, right: 20, left: 20, bottom: 20),
@@ -152,6 +157,8 @@ class _PartnerSrcState extends State<PartnerSrc> {
               textBorder: true,
               background: true,
               fontsize: 14,
+              containerHeight: 30,
+              containerWeight: 180,
             ),
             Container(
               margin: const EdgeInsets.only(
@@ -172,12 +179,10 @@ class _PartnerSrcState extends State<PartnerSrc> {
                       'Partner with NAMI and gain more\nthan just a service provider.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                        decoration: TextDecoration.none,
                         fontSize: 20,
                         //fontWeight: FontWeight.w100,
                         color: Colors.white,
-                      ))),
+                      )),
                   const SizedBox(
                     height: 20,
                   ),
@@ -185,13 +190,11 @@ class _PartnerSrcState extends State<PartnerSrc> {
                       ' As your trusted collaborator, we will be working hand-in-hand to develop tailored solutions that\npropel your growth.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                        decoration: TextDecoration.none,
                         fontSize: 10,
                         letterSpacing: 1,
                         //fontWeight: FontWeight.w100,
                         color: Colors.white54,
-                      ))),
+                      )),
                   const SizedBox(
                     height: 30,
                   ),
@@ -202,11 +205,15 @@ class _PartnerSrcState extends State<PartnerSrc> {
                           height: 40,
                           width: 300,
                           hintText: 'First Name',
+                          backgroundColor: Colors.white24,
+                          textColor: Colors.white54,
                           maxline: 1),
                       ContactForm(
                           height: 40,
                           width: 300,
                           hintText: 'Last Name',
+                          backgroundColor: Colors.white24,
+                          textColor: Colors.white54,
                           maxline: 1),
                     ],
                   ),
@@ -220,11 +227,15 @@ class _PartnerSrcState extends State<PartnerSrc> {
                           height: 40,
                           width: 300,
                           hintText: 'Email Address',
+                          backgroundColor: Colors.white24,
+                          textColor: Colors.white54,
                           maxline: 1),
                       ContactForm(
                           height: 40,
                           width: 300,
                           hintText: 'Mobile Number',
+                          backgroundColor: Colors.white24,
+                          textColor: Colors.white54,
                           maxline: 1),
                     ],
                   ),
@@ -238,11 +249,15 @@ class _PartnerSrcState extends State<PartnerSrc> {
                           height: 40,
                           width: 300,
                           hintText: 'Company',
+                          backgroundColor: Colors.white24,
+                          textColor: Colors.white54,
                           maxline: 1),
                       ContactForm(
                           height: 40,
                           width: 300,
                           hintText: 'Mobile Number',
+                          backgroundColor: Colors.white24,
+                          textColor: Colors.white54,
                           maxline: 1),
                     ],
                   ),
@@ -253,9 +268,11 @@ class _PartnerSrcState extends State<PartnerSrc> {
                       height: 150,
                       width: 680,
                       hintText: 'Your Message',
+                      backgroundColor: Colors.white24,
+                      textColor: Colors.white54,
                       maxline: 4),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Onhover(
                     onPressed: () {},
@@ -265,6 +282,8 @@ class _PartnerSrcState extends State<PartnerSrc> {
                     textHover: true,
                     background: true,
                     fontsize: 14,
+                    containerHeight: 30,
+                    containerWeight: 180,
                   )
                 ],
               ),
@@ -272,7 +291,7 @@ class _PartnerSrcState extends State<PartnerSrc> {
             const SizedBox(
               height: 30,
             ),
-            const contactFooter()
+            const ContactFooter()
           ],
         ),
       ),
